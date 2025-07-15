@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(255, 241, 248, 0.3), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/736x/71/ff/4e/71ff4eca2fe1e91eb0d81f16542b086d.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+ .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    #surpriseImageContainer {
+      animation: fadeIn 1s ease-in-out;
+      text-align: center;
+      max-width: 600px;
+      position: relative;
+    }
+    #surpriseImage {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    #downloadLink {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 8px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    #downloadLink:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    #downloadLink i {
+      font-size: 20px;
+    }
+    #backLink {
+      align-self: flex-start;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 8px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      margin-bottom: 10px;
+    }
+    #backLink:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    #backLink i {
+      font-size: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff6b6b;
+      transform: rotate(45deg);
+      animation: float 4s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-1000px) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+  <div class="container">
+    <a id="backLink" href="ForMyBabi.html">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+    <div id="surpriseImageContainer">
+      <img id="surpriseImage" src="C:\Users\ADMIN\Downloads\fy\Untitled133_20250715200213.jpg" alt="Surprise Image">
+      <a id="downloadLink" href="C:\Users\ADMIN\Downloads\fy\Untitled133_20250715200213.jpg" download="Untitled133_20250715200213.jpg">
+        <i class="fas fa-download"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+
+    window.addEventListener('load', createHearts);
+  </script>
+</body>
+</html>
